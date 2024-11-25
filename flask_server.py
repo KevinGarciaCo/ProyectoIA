@@ -1,10 +1,3 @@
-#   ................................................................................
-#   flask_server.py
-#   Python code of a flask sever for local Web development 
-#   Written by: Daniel Fong, Mark Chen, Riyya Hari Iyer
-#   Date Created: 10/15/2019
-#   Last Modified: 12/03/2019
-#   ................................................................................
 
 import os
 import json
@@ -68,41 +61,15 @@ def foodDatabase():
         with open(json_file, 'r') as file:
             stored_data = json.load(file)  # in python list
 
-        # print("STORED DATA ____________________________")
-        # print(type(stored_data))
-        # print(stored_data)
 
         received_data = request.form.to_dict()  # in python dict
         received_data["tags"] = json.loads(received_data["tags"])
-        # print("RECEIVED DATA______________________________")
-        # print(type(received_data))
-        # print(received_data)
+
 
         if not any(temp["name"] == received_data["name"] for temp in stored_data):
         	stored_data.append(received_data.copy())
         
-        # print("NEW STORED DATA______________________________________")
-        # print(type(stored_data))
-        # print(stored_data)
-
-        # Remove duplicate dicts
-        # https://stackoverflow.com/questions/9427163/remove-duplicate-dict-in-list-in-python
-        # seen = set()
-        # combined_data = []
-        # for dictionary in stored_data:
-        #     dictionary_tuple = tuple(dictionary.items())
-        #     if dictionary_tuple not in seen:
-        #         seen.add(dictionary_tuple)
-        #         combined_data.append(dictionary)
-
-        # print("COMBINED DATA________________________________")
-        # print(type(combined_data))
-        # print(combined_data)
-
-        # dictonary to string
-        # json_combined_data = json.dumps(combined_data)
-        # print(type(json_combined_data))
-        # print(json_combined_data)
+       
         json_stored_data = json.dumps(stored_data)
         with open(json_file, 'w') as file:
             file.seek(0)
