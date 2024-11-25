@@ -10,9 +10,9 @@
 
 
 ### Recursos y APIs
-4. Jquery - https://jquery.com/
-5. Jquery Datatables - https://datatables.net/
-6. Nutritionix API - https://developer.nutritionix.com/docs/v2
-7. Nutritionix Nutrition Label - https://github.com/nutritionix/nutrition-label
-8. Chart.js - https://www.chartjs.org/docs/latest/
-9. Jquery UI - https://jqueryui.com/
+1. Jquery - https://jquery.com/
+2. Jquery Datatables - https://datatables.net/
+3. Nutritionix API - https://developer.nutritionix.com/docs/v2
+4. Nutritionix Nutrition Label - https://github.com/nutritionix/nutrition-label
+5. Chart.js - https://www.chartjs.org/docs/latest/
+6. Jquery UI - https://jqueryui.com/
