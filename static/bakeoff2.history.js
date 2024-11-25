@@ -1,23 +1,3 @@
-//  ................................................................................
-//  bakeoff2.history.js
-//  javascript for Food Log page of BakeOff2:
-//  Written by: Daniel Fong, Mark Chen, Riyya Hari Iyer
-//  Date Created: 10/15/2019
-//  Last Modified: 12/02/2019
-//  ................................................................................
-
-/*  --- ---  */
-// --- Initialization ---
-
-// --- Variables ---
-
-// --- Functions ---
-
-// --- In-Use ---
-
-
-/*  --- Website Header and Tabs ---  */
-// --- Variables ---
 var tabName = 'History';
 var tabColor = 'orange';
 
@@ -25,28 +5,21 @@ var tabColor = 'orange';
 openTab(tabName, tabColor)
 
 
-//Wait till document is "loaded" before starting data stuff, just in case of bugs or something
 $(document).ready(function() {
     /*  --- Datepiacker ---  */
     // --- Initialization ---
     $("#datepicker").datepicker();
 
 
-    /*  --- DataTable ---  */
-    // https://datatables.net/forums/discussion/50691/how-to-use-columndefs-multiple-time-in-a-datatable
-    // https://datatables.net/forums/discussion/43625/change-a-cells-css-based-on-a-different-cells-value
     // --- Initialization ---
     $('table.display').DataTable({
-        // https://datatables.net/forums/discussion/50691/how-to-use-columndefs-multiple-time-in-a-datatable
+       
         "columnDefs": [
             {
                 targets: -2,
-                // https://datatables.net/reference/option/columns.createdCell
+                
                 createdCell: function (cell, cellData, rowData, rowIndex, colIndex) {
                 },
-                // https://www.tutorialrepublic.com/faq/how-to-convert-comma-separated-string-into-an-array-in-javascript.php
-                // https://datatables.net/reference/option/columns.render
-                // https://datatables.net/forums/discussion/44145/showing-object-object-instead-of-showing-the-button-with-id-in-data-id-in-editor
                 render: function(data, type, full){
                     var data_array = data.split(",");
                     var data_class = "food-tag-" + data_array[1].replace(" ", "-");
@@ -60,8 +33,6 @@ $(document).ready(function() {
             },
             {
             	targets: -3,
-                // https://datatables.net/reference/option/columns.render
-                // https://datatables.net/forums/discussion/44145/showing-object-object-instead-of-showing-the-button-with-id-in-data-id-in-editor
             	render: function(data, type, full){
                     var data_array = data.split(",");
                     var return_string = ""
@@ -69,7 +40,7 @@ $(document).ready(function() {
                         return_string += "<label class=\""+ data_array[i] + "\">" + data_array[i] + "</label><br><div style=\"margin-top: 4px\"></div>";
                     }
                     return return_string;
-                    //return ("<label class=\""+ data_array[0] + "\">" + data_array[0] + "</label><br><div style=\"margin-top: 4px\"></div><label class=\"label_carbs\">" + data_array[1] + "</label><br><div style=\"margin-top: 4px\"></div><label class=\"label_fat\">" + data_array[2] + "</label>");
+                    
                 }
             }
         ],
@@ -254,8 +225,6 @@ $("#history-search-icon").click(function(){
         $("label:contains('High Fats')").css( "padding", "5px");
         $("label:contains('High Fats')").css( "display", "inline-block");
         $("label:contains('High Fats')").css( "width", "100px");
-
-        alert("Data was retrieved for user: " + user);
     });
 });
 
@@ -269,62 +238,59 @@ $("#table_breakfast tbody").on('click', 'label', function () {
 
     console.log($(this).attr("class"));
 
-    if ($(this).attr("class") == "food-tag-Good-Food" || $(this).attr("class") == "food-tag-Bad-Food"){
-        //https://stackoverflow.com/questions/19438895/add-a-new-line-in-innerhtml
-        document.getElementById("history-alert").innerHTML =  cell_data_abstractTag_array[0] + " is " + cell_data_abstractTag_array[1] + " because:" + "<br />";
+
+    if ($(this).attr("class") == "food-tag-Good-Food" || $(this).attr("class") == "food-tag-Bad-Food") {
         
-        // https://www.geeksforgeeks.org/how-to-append-html-code-to-a-div-using-javascript/
+        document.getElementById("history-alert").innerHTML = cell_data_abstractTag_array[0] + " is " + cell_data_abstractTag_array[1] + " because:" + "<br />";
+        
+        
         for (var i = 2; i < cell_data_abstractTag_array.length; i++) {
             document.getElementById("history-alert").innerHTML += "• " + cell_data_abstractTag_array[i] + "<br />";
         }
-
-        if (cell_data_abstractTag_array[1] == "Good Food") alert('Good Food Label Clicked!');
-        if (cell_data_abstractTag_array[1] == "Bad Food")  alert('Bad Food Label Clicked!');
-    }
-
-    if ($(this).attr("class") == "High Carbohydrates"){
-        //https://stackoverflow.com/questions/19438895/add-a-new-line-in-innerhtml
-        document.getElementById("history-alert").innerHTML =  food_of_cell + " has " + "High Carbohydrates" + " because:" + "<br />";
-        document.getElementById("history-alert").innerHTML += "• " + food_of_cell + 
-            " carbohydrates accounts for more than 40% of calories";
-    }
-
-    if ($(this).attr("class") == "High Proteins"){
-        //https://stackoverflow.com/questions/19438895/add-a-new-line-in-innerhtml
-        document.getElementById("history-alert").innerHTML =  food_of_cell + " has " + "High Proteins" + " because:" + "<br />";        
-        document.getElementById("history-alert").innerHTML += "• " + food_of_cell + 
-            " proteins accounts for more than 40% of calories";
     }
     
-    if ($(this).attr("class") == "High Fats"){
-        //https://stackoverflow.com/questions/19438895/add-a-new-line-in-innerhtml
-        document.getElementById("history-alert").innerHTML =  food_of_cell + " has " + "High Fats" + " because:" + "<br />";   
+    if ($(this).attr("class") == "High Carbohydrates") {
+        
+        document.getElementById("history-alert").innerHTML = food_of_cell + " tiene " + "Altos Carbohidratos" + " porque:" + "<br />";
         document.getElementById("history-alert").innerHTML += "• " + food_of_cell + 
-            " fats accounts for more than 40% of calories";
+            " los carbohidratos representan más del 40% de las calorías";
     }
-
-    if ($(this).attr("class") == "Low Carbohydrates"){
-        //https://stackoverflow.com/questions/19438895/add-a-new-line-in-innerhtml
-        document.getElementById("history-alert").innerHTML =  food_of_cell + " has " + "Low Carbohydrates" + " because:" + "<br />"; 
+    
+    if ($(this).attr("class") == "High Proteins") {
+        
+        document.getElementById("history-alert").innerHTML = food_of_cell + " tiene " + "Altas Proteínas" + " porque:" + "<br />";        
         document.getElementById("history-alert").innerHTML += "• " + food_of_cell + 
-            " carbohydrates accounts for less than 20% of calories";
-
+            " las proteínas representan más del 40% de las calorías";
     }
-
-    if ($(this).attr("class") == "Low Proteins"){
-        //https://stackoverflow.com/questions/19438895/add-a-new-line-in-innerhtml
-        document.getElementById("history-alert").innerHTML =  food_of_cell + " has " + "Low Proteins" + " because:" + "<br />";
+    
+    if ($(this).attr("class") == "High Fats") {
+        
+        document.getElementById("history-alert").innerHTML = food_of_cell + " tiene " + "Altas Grasas" + " porque:" + "<br />";   
         document.getElementById("history-alert").innerHTML += "• " + food_of_cell + 
-            " proteins accounts for less than 20% of calories";
+            " las grasas representan más del 40% de las calorías";
     }
-
-    if ($(this).attr("class") == "Low Fats"){
-        //https://stackoverflow.com/questions/19438895/add-a-new-line-in-innerhtml
-        document.getElementById("history-alert").innerHTML =  food_of_cell + " has " + "Low Fats" + " because:" + "<br />";
+    
+    if ($(this).attr("class") == "Low Carbohydrates") {
+        
+        document.getElementById("history-alert").innerHTML = food_of_cell + " tiene " + "Bajos Carbohidratos" + " porque:" + "<br />"; 
         document.getElementById("history-alert").innerHTML += "• " + food_of_cell + 
-            " fats accounts for less than 20% of calories";
+            " los carbohidratos representan menos del 20% de las calorías";
     }
-
+    
+    if ($(this).attr("class") == "Low Proteins") {
+        
+        document.getElementById("history-alert").innerHTML = food_of_cell + " tiene " + "Bajas Proteínas" + " porque:" + "<br />";
+        document.getElementById("history-alert").innerHTML += "• " + food_of_cell + 
+            " las proteínas representan menos del 20% de las calorías";
+    }
+    
+    if ($(this).attr("class") == "Low Fats") {
+        
+        document.getElementById("history-alert").innerHTML = food_of_cell + " tiene " + "Bajas Grasas" + " porque:" + "<br />";
+        document.getElementById("history-alert").innerHTML += "• " + food_of_cell + 
+            " las grasas representan menos del 20% de las calorías";
+    }
+    
 } );
 
 $("#table_lunch tbody").on('click', 'label', function () {
@@ -339,61 +305,70 @@ $("#table_lunch tbody").on('click', 'label', function () {
     console.log($(this).attr("class"));
 
     if ($(this).attr("class") == "food-tag-Good-Food" || $(this).attr("class") == "food-tag-Bad-Food"){
-        //https://stackoverflow.com/questions/19438895/add-a-new-line-in-innerhtml
+        
         document.getElementById("history-alert").innerHTML =  cell_data_abstractTag_array[0] + " is " + cell_data_abstractTag_array[1] + " because:" + "<br />";
         
-        // https://www.geeksforgeeks.org/how-to-append-html-code-to-a-div-using-javascript/
+        
         for (var i = 2; i < cell_data_abstractTag_array.length; i++) {
             document.getElementById("history-alert").innerHTML += "• " + cell_data_abstractTag_array[i] + "<br />";
         }
 
-        if (cell_data_abstractTag_array[1] == "Good Food") alert('Good Food Label Clicked!');
-        if (cell_data_abstractTag_array[1] == "Bad Food")  alert('Bad Food Label Clicked!');
+       
     }
 
 
-    if ($(this).attr("class") == "High Carbohydrates"){
-        //https://stackoverflow.com/questions/19438895/add-a-new-line-in-innerhtml
-        document.getElementById("history-alert").innerHTML =  food_of_cell + " has " + "High Carbohydrates" + " because:" + "<br />";
-        document.getElementById("history-alert").innerHTML += "• " + food_of_cell + 
-            " carbohydrates accounts for more than 40% of calories";
-    }
-
-    if ($(this).attr("class") == "High Proteins"){
-        //https://stackoverflow.com/questions/19438895/add-a-new-line-in-innerhtml
-        document.getElementById("history-alert").innerHTML =  food_of_cell + " has " + "High Proteins" + " because:" + "<br />";        
-        document.getElementById("history-alert").innerHTML += "• " + food_of_cell + 
-            " proteins accounts for more than 40% of calories";
+    if ($(this).attr("class") == "food-tag-Good-Food" || $(this).attr("class") == "food-tag-Bad-Food") {
+        
+        document.getElementById("history-alert").innerHTML = cell_data_abstractTag_array[0] + " es " + cell_data_abstractTag_array[1] + " porque:" + "<br />";
+        
+        
+        for (var i = 2; i < cell_data_abstractTag_array.length; i++) {
+            document.getElementById("history-alert").innerHTML += "• " + cell_data_abstractTag_array[i] + "<br />";
+        }
     }
     
-    if ($(this).attr("class") == "High Fats"){
-        //https://stackoverflow.com/questions/19438895/add-a-new-line-in-innerhtml
-        document.getElementById("history-alert").innerHTML =  food_of_cell + " has " + "High Fats" + " because:" + "<br />";   
+    if ($(this).attr("class") == "High Carbohydrates") {
+        
+        document.getElementById("history-alert").innerHTML = food_of_cell + " tiene " + "Altos Carbohidratos" + " porque:" + "<br />";
         document.getElementById("history-alert").innerHTML += "• " + food_of_cell + 
-            " fats accounts for more than 40% of calories";
+            " los carbohidratos representan más del 40% de las calorías";
     }
-
-    if ($(this).attr("class") == "Low Carbohydrates"){
-        //https://stackoverflow.com/questions/19438895/add-a-new-line-in-innerhtml
-        document.getElementById("history-alert").innerHTML =  food_of_cell + " has " + "Low Carbohydrates" + " because:" + "<br />"; 
+    
+    if ($(this).attr("class") == "High Proteins") {
+        
+        document.getElementById("history-alert").innerHTML = food_of_cell + " tiene " + "Altas Proteínas" + " porque:" + "<br />";        
         document.getElementById("history-alert").innerHTML += "• " + food_of_cell + 
-            " carbohydrates accounts for less than 20% of calories";
-
+            " las proteínas representan más del 40% de las calorías";
     }
-
-    if ($(this).attr("class") == "Low Proteins"){
-        //https://stackoverflow.com/questions/19438895/add-a-new-line-in-innerhtml
-        document.getElementById("history-alert").innerHTML =  food_of_cell + " has " + "Low Proteins" + " because:" + "<br />";
+    
+    if ($(this).attr("class") == "High Fats") {
+        
+        document.getElementById("history-alert").innerHTML = food_of_cell + " tiene " + "Altas Grasas" + " porque:" + "<br />";   
         document.getElementById("history-alert").innerHTML += "• " + food_of_cell + 
-            " proteins accounts for less than 20% of calories";
+            " las grasas representan más del 40% de las calorías";
     }
-
-    if ($(this).attr("class") == "Low Fats"){
-        //https://stackoverflow.com/questions/19438895/add-a-new-line-in-innerhtml
-        document.getElementById("history-alert").innerHTML =  food_of_cell + " has " + "Low Fats" + " because:" + "<br />";
+    
+    if ($(this).attr("class") == "Low Carbohydrates") {
+        
+        document.getElementById("history-alert").innerHTML = food_of_cell + " tiene " + "Bajos Carbohidratos" + " porque:" + "<br />"; 
         document.getElementById("history-alert").innerHTML += "• " + food_of_cell + 
-            " fats accounts for less than 20% of calories";
+            " los carbohidratos representan menos del 20% de las calorías";
     }
+    
+    if ($(this).attr("class") == "Low Proteins") {
+        
+        document.getElementById("history-alert").innerHTML = food_of_cell + " tiene " + "Bajas Proteínas" + " porque:" + "<br />";
+        document.getElementById("history-alert").innerHTML += "• " + food_of_cell + 
+            " las proteínas representan menos del 20% de las calorías";
+    }
+    
+    if ($(this).attr("class") == "Low Fats") {
+        
+        document.getElementById("history-alert").innerHTML = food_of_cell + " tiene " + "Bajas Grasas" + " porque:" + "<br />";
+        document.getElementById("history-alert").innerHTML += "• " + food_of_cell + 
+            " las grasas representan menos del 20% de las calorías";
+    }
+    
 } );
 
 
@@ -408,61 +383,58 @@ $("#table_dinner tbody").on('click', 'label', function () {
 
     console.log($(this).attr("class"));
 
-    if ($(this).attr("class") == "food-tag-Good-Food" || $(this).attr("class") == "food-tag-Bad-Food"){
-        //https://stackoverflow.com/questions/19438895/add-a-new-line-in-innerhtml
-        document.getElementById("history-alert").innerHTML =  cell_data_abstractTag_array[0] + " is " + cell_data_abstractTag_array[1] + " because:" + "<br />";
+    if ($(this).attr("class") == "food-tag-Good-Food" || $(this).attr("class") == "food-tag-Bad-Food") {
         
-        // https://www.geeksforgeeks.org/how-to-append-html-code-to-a-div-using-javascript/
+        document.getElementById("history-alert").innerHTML = cell_data_abstractTag_array[0] + " es " + cell_data_abstractTag_array[1] + " porque:" + "<br />";
+        
+        
         for (var i = 2; i < cell_data_abstractTag_array.length; i++) {
             document.getElementById("history-alert").innerHTML += "• " + cell_data_abstractTag_array[i] + "<br />";
         }
-
-        if (cell_data_abstractTag_array[1] == "Good Food") alert('Good Food Label Clicked!');
-        if (cell_data_abstractTag_array[1] == "Bad Food")  alert('Bad Food Label Clicked!');
-    }
-
-    if ($(this).attr("class") == "High Carbohydrates"){
-        //https://stackoverflow.com/questions/19438895/add-a-new-line-in-innerhtml
-        document.getElementById("history-alert").innerHTML =  food_of_cell + " has " + "High Carbohydrates" + " because:" + "<br />";
-        document.getElementById("history-alert").innerHTML += "• " + food_of_cell + 
-            " carbohydrates accounts for more than 40% of calories";
-    }
-
-    if ($(this).attr("class") == "High Proteins"){
-        //https://stackoverflow.com/questions/19438895/add-a-new-line-in-innerhtml
-        document.getElementById("history-alert").innerHTML =  food_of_cell + " has " + "High Proteins" + " because:" + "<br />";        
-        document.getElementById("history-alert").innerHTML += "• " + food_of_cell + 
-            " proteins accounts for more than 40% of calories";
     }
     
-    if ($(this).attr("class") == "High Fats"){
-        //https://stackoverflow.com/questions/19438895/add-a-new-line-in-innerhtml
-        document.getElementById("history-alert").innerHTML =  food_of_cell + " has " + "High Fats" + " because:" + "<br />";   
+    if ($(this).attr("class") == "High Carbohydrates") {
+        
+        document.getElementById("history-alert").innerHTML = food_of_cell + " tiene " + "Altos Carbohidratos" + " porque:" + "<br />";
         document.getElementById("history-alert").innerHTML += "• " + food_of_cell + 
-            " fats accounts for more than 40% of calories";
+            " los carbohidratos representan más del 40% de las calorías";
     }
-
-    if ($(this).attr("class") == "Low Carbohydrates"){
-        //https://stackoverflow.com/questions/19438895/add-a-new-line-in-innerhtml
-        document.getElementById("history-alert").innerHTML =  food_of_cell + " has " + "Low Carbohydrates" + " because:" + "<br />"; 
+    
+    if ($(this).attr("class") == "High Proteins") {
+        
+        document.getElementById("history-alert").innerHTML = food_of_cell + " tiene " + "Altas Proteínas" + " porque:" + "<br />";        
         document.getElementById("history-alert").innerHTML += "• " + food_of_cell + 
-            " carbohydrates accounts for less than 20% of calories";
-
+            " las proteínas representan más del 40% de las calorías";
     }
-
-    if ($(this).attr("class") == "Low Proteins"){
-        //https://stackoverflow.com/questions/19438895/add-a-new-line-in-innerhtml
-        document.getElementById("history-alert").innerHTML =  food_of_cell + " has " + "Low Proteins" + " because:" + "<br />";
+    
+    if ($(this).attr("class") == "High Fats") {
+        
+        document.getElementById("history-alert").innerHTML = food_of_cell + " tiene " + "Altas Grasas" + " porque:" + "<br />";   
         document.getElementById("history-alert").innerHTML += "• " + food_of_cell + 
-            " proteins accounts for less than 20% of calories";
+            " las grasas representan más del 40% de las calorías";
     }
-
-    if ($(this).attr("class") == "Low Fats"){
-        //https://stackoverflow.com/questions/19438895/add-a-new-line-in-innerhtml
-        document.getElementById("history-alert").innerHTML =  food_of_cell + " has " + "Low Fats" + " because:" + "<br />";
+    
+    if ($(this).attr("class") == "Low Carbohydrates") {
+        
+        document.getElementById("history-alert").innerHTML = food_of_cell + " tiene " + "Bajos Carbohidratos" + " porque:" + "<br />"; 
         document.getElementById("history-alert").innerHTML += "• " + food_of_cell + 
-            " fats accounts for less than 20% of calories";
+            " los carbohidratos representan menos del 20% de las calorías";
     }
+    
+    if ($(this).attr("class") == "Low Proteins") {
+        
+        document.getElementById("history-alert").innerHTML = food_of_cell + " tiene " + "Bajas Proteínas" + " porque:" + "<br />";
+        document.getElementById("history-alert").innerHTML += "• " + food_of_cell + 
+            " las proteínas representan menos del 20% de las calorías";
+    }
+    
+    if ($(this).attr("class") == "Low Fats") {
+        
+        document.getElementById("history-alert").innerHTML = food_of_cell + " tiene " + "Bajas Grasas" + " porque:" + "<br />";
+        document.getElementById("history-alert").innerHTML += "• " + food_of_cell + 
+            " las grasas representan menos del 20% de las calorías";
+    }
+    
 } );
 
 
@@ -479,14 +451,8 @@ $("#table_dinner tbody").on('click', 'button', function () {
 } );
 
 
-
-
-
-/*  --- Food Evaluation Criteria Planner ---  */
-// --- In-Use ---
 $("#food-cutoff-button").click(function() {
 
-    //update user's diet profile object
     userDietProfile["cutoff_calories"] = $("#cutoff-calories").val();
     userDietProfile["cutoff_carbohydrates"] = $("#cutoff-carbohydrates").val();
     userDietProfile["cutoff_proteins"] = $("#cutoff-proteins").val();
@@ -500,5 +466,5 @@ $("#food-cutoff-button").click(function() {
 
     $.post("/food-pref", userDietProfile, null, "json");
 
-    alert("Evaluation Criteria Saved!");
+        alert("¡Criterios de Sugerencia Guardados!");
 });
