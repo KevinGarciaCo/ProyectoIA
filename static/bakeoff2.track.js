@@ -1,23 +1,4 @@
-//	................................................................................
-//  bakeoff2.track.js
-//	javascript for track page of BakeOff2:
-//  Written by: Daniel Fong, Mark Chen, Riyya Hari Iyer
-//  Date Created: 10/15/2019
-//  Last Modified: 12/03/2019
-//	................................................................................
 
-/*  --- ---  */
-// --- Initialization ---
-
-// --- Variables ---
-
-// --- Functions ---
-
-// --- In-Use ---
-
-
-/*  --- Website Header and Tabs ---  */
-// --- Variables ---
 var tabName = 'Track';
 var color = 'lightseagreen';
 
@@ -31,16 +12,11 @@ $(document).ready(function() {
     // --- Initialization ---
     $("#datepicker").datepicker();
 
-    /*  --- DataTable ---  */
-    // https://datatables.net/forums/discussion/50691/how-to-use-columndefs-multiple-time-in-a-datatable
-    // https://datatables.net/forums/discussion/43625/change-a-cells-css-based-on-a-different-cells-value
-    // --- Initialization ---
     $('table.display').DataTable({
         "columnDefs": [
             {
                 targets: -2,
-                // https://datatables.net/reference/option/columns.render
-                // https://datatables.net/forums/discussion/44145/showing-object-object-instead-of-showing-the-button-with-id-in-data-id-in-editor
+
             	render: function(data, type, full){
                     var data_array = data.split(",");
                     var return_string = ""
@@ -48,7 +24,7 @@ $(document).ready(function() {
                         return_string += "<label class=\""+ data_array[i] + "\">" + data_array[i] + "</label><br><div style=\"margin-top: 4px\"></div>";
                     }
                     return return_string;
-                    //return ("<label class=\""+ data_array[0] + "\">" + data_array[0] + "</label><br><div style=\"margin-top: 4px\"></div><label class=\"label_carbs\">" + data_array[1] + "</label><br><div style=\"margin-top: 4px\"></div><label class=\"label_fat\">" + data_array[2] + "</label>");
+                    
                 }
             },
             {
@@ -183,113 +159,117 @@ var ctx = document.getElementById('nutrition-chart').getContext('2d');
 var nutritionChart;
 
 var line_data = {
-    labels: ["After Breakfast", " After Lunch", "After Dinner"],
+    labels: ["Después del desayuno", "Después del almuerzo", "Después de la cena"],
+
     datasets: [
         {
-            label: 'Calories [kcal]',
+            label: 'Calorías [kcal]',
             data: [0, 0, 0],
             backgroundColor: 'rgba(255, 99, 132, 0.2)',
             borderColor: 'rgba(255, 99, 132, 1)',
             fill: false,
             lineTension: 0
-     }, {
-            label: 'Carbohydrate [g]',
+        },
+        {
+            label: 'Carbohidratos [g]',
             data: [0, 0, 0],
             backgroundColor: 'rgba(75, 192, 192, 0.2)',
             borderColor: 'rgba(75, 192, 192, 1)',
             fill: false,
             lineTension: 0
-     }, {
-            label: 'Protein [g]',
+        },
+        {
+            label: 'Proteínas [g]',
             data: [0, 0, 0],
             backgroundColor: 'rgba(54, 162, 235, 0.2)',
             borderColor: 'rgba(54, 162, 235, 1)',
             fill: false,
             lineTension: 0
-     }, {
-            label: 'Fat [g]',
+        },
+        {
+            label: 'Grasas [g]',
             data: [0, 0, 0],
             backgroundColor: 'rgba(255, 206, 86, 0.2)',
             borderColor: 'rgba(255, 206, 86, 1)',
             fill: false,
             lineTension: 0
-    }]
-};
+        }
+    ]
+    };
+    
 
-var line_options = {
-    responsive: true,
-    maintainAspectRatio: false,
-    title: {
-        display: true,
-        text: 'Macronutrients Intake',
-        fontSize: 16
-    },
-    scales: {
-              yAxes: [{
-                  ticks: {
-                      beginAtZero: true,
-                      suggestedMin: 0,
-                      suggestedMax: 250,
-                      stepSize: 100
-                  },
-                  scaleLabel: {
-                       display: true,
-                  }
-              }]            
-          }  
-  };
-
-
-var bar_data = {
-    labels: ["Calories [kcal]", "Carbohydrate [g]", "Protein [g]", "Fat [g]"],
-    datasets: [{
-        data: [0, 0, 0, 0],
-        backgroundColor: [
-            'rgba(255, 99, 132, 0.2)',
-            'rgba(75, 192, 192, 0.2)',
-            'rgba(54, 162, 235, 0.2)',
-            'rgba(255, 206, 86, 0.2)'
-        ],
-        borderColor: [
-            'rgba(255, 99, 132, 1)',
-            'rgba(75, 192, 192, 1)',
-            'rgba(54, 162, 235, 1)',
-            'rgba(255, 206, 86, 1)'
-        ]
-      }]
-};
-
-var bar_options = {
-    responsive: true,
-    maintainAspectRatio: false,
-    legend: {
-        display: false
-    },
-    title: {
-        display: true,
-        text: 'Macronutrients Intake',
-        fontSize: 16
-    },
-    scales: {
-        yAxes: [{
-            ticks: {
-                beginAtZero: true,
-                suggestedMin: 0,
-                suggestedMax: 250,
-                stepSize: 100
-            },
-            scaleLabel: {
-                display: true,
-            }
-        }]            
-    },
-    // https://github.com/chartjs/chartjs-plugin-annotation
-    // https://www.npmjs.com/package/chartjs-plugin-annotation
-    annotation: {
-        annotations: [],
-        drawTime: "afterDraw" // (default)
-    }
-  };
+    var line_options = {
+        responsive: true,
+        maintainAspectRatio: false,
+        title: {
+            display: true,
+            text: 'Consumo de Macronutrientes',
+            fontSize: 16
+        },
+        scales: {
+            yAxes: [{
+                ticks: {
+                    beginAtZero: true,
+                    suggestedMin: 0,
+                    suggestedMax: 250,
+                    stepSize: 100
+                },
+                scaleLabel: {
+                    display: true,
+                }
+            }]
+        }
+    };
+    
+    var bar_data = {
+        labels: ["Calorías [kcal]", "Carbohidratos [g]", "Proteínas [g]", "Grasas [g]"],
+        datasets: [{
+            data: [0, 0, 0, 0],
+            backgroundColor: [
+                'rgba(255, 99, 132, 0.2)',
+                'rgba(75, 192, 192, 0.2)',
+                'rgba(54, 162, 235, 0.2)',
+                'rgba(255, 206, 86, 0.2)'
+            ],
+            borderColor: [
+                'rgba(255, 99, 132, 1)',
+                'rgba(75, 192, 192, 1)',
+                'rgba(54, 162, 235, 1)',
+                'rgba(255, 206, 86, 1)'
+            ]
+        }]
+    };
+    
+    var bar_options = {
+        responsive: true,
+        maintainAspectRatio: false,
+        legend: {
+            display: false
+        },
+        title: {
+            display: true,
+            text: 'Consumo de Macronutrientes',
+            fontSize: 16
+        },
+        scales: {
+            yAxes: [{
+                ticks: {
+                    beginAtZero: true,
+                    suggestedMin: 0,
+                    suggestedMax: 250,
+                    stepSize: 100
+                },
+                scaleLabel: {
+                    display: true,
+                }
+            }]
+        },
+        annotation: {
+            annotations: [],
+            drawTime: "afterDraw"
+        }
+    };
+    
 
   var pie_data = {
     labels: [/*"Calories [kcal]",*/ "Carbohydrate [kcal]", "Protein [kcal]", "Fat [kcal]"],
@@ -526,12 +506,8 @@ $("#track-search-icon").click(function(){
             aiFoods_selected[i]["proteins"], aiFoods_selected[i]["fats"],
             aiFood_selected_tags_string]).draw();
 
-            //console.log("print one row");
-
         }
 
-        // style food tags
-        // https://api.jquery.com/contains-selector/
         $("label:contains('Good Food')").css( "background-color", "lightseagreen" );
         $("label:contains('Bad Food')").css( "background-color", "tomato" );
 
@@ -587,10 +563,7 @@ function updateNutritionCharts(){
     bar_data.datasets[0].data[1] = getNewCarbohydrates("Bar Graph");
     bar_data.datasets[0].data[2] = getNewProteins("Bar Graph");
     bar_data.datasets[0].data[3] = getNewFats("Bar Graph");
-    // bar_options.annotation.annotations[0] = bar_getNewTargetLine(plan_calories, "rgb(255, 99, 132)");
-    // bar_options.annotation.annotations[1] = bar_getNewTargetLine(plan_carbohydrates, "rgb(75, 192, 192)");
-    // bar_options.annotation.annotations[2] = bar_getNewTargetLine(plan_proteins, "rgb(54, 162, 235)");
-    // bar_options.annotation.annotations[3] = bar_getNewTargetLine(plan_fats, "rgb(255, 206, 86)");
+
     pie_data.datasets[0].data[0] = getNewCarbohydrates("Pie Chart");
     pie_data.datasets[0].data[1] = getNewProteins("Pie Chart");
     pie_data.datasets[0].data[2] = getNewFats("Pie Chart");
@@ -610,10 +583,6 @@ function updateNutritionCharts(){
         nutritionChart.data.datasets[0].data[2] = getNewProteins(chart_box.value);
         nutritionChart.data.datasets[0].data[3] = getNewFats(chart_box.value);
 
-        // nutritionChart.options.annotation.annotations[0] = bar_getNewTargetLine(plan_calories, "rgb(255, 99, 132)");
-        // nutritionChart.options.annotation.annotations[1] = bar_getNewTargetLine(plan_carbohydrates, "rgb(75, 192, 192)");
-        // nutritionChart.options.annotation.annotations[2] = bar_getNewTargetLine(plan_proteins, "rgb(54, 162, 235)");
-        // nutritionChart.options.annotation.annotations[3] = bar_getNewTargetLine(plan_fats, "rgb(255, 206, 86)");
     } 
 
     if (chart_box.value == 'Pie Chart') {
@@ -632,47 +601,46 @@ $("#table-suggest").on('click', 'label', function () {
     var cell_data = $("#table-suggest").DataTable().cell(cell_row, -2).data();
     var cell_data_array = cell_data.split(",");
 
-    if ($(this).attr("class") == "High Carbohydrates"){
+    if ($(this).attr("class") == "High Carbohydrates") {
         //https://stackoverflow.com/questions/19438895/add-a-new-line-in-innerhtml
-        document.getElementById("track-alert").innerHTML =  food_of_cell + " has " + "High Carbohydrates" + " because:" + "<br />";
+        document.getElementById("track-alert").innerHTML = food_of_cell + " tiene " + "Altos Carbohidratos" + " porque:" + "<br />";
         document.getElementById("track-alert").innerHTML += "• " + food_of_cell + 
-            " carbohydrates accounts for more than 40% of calories";
-    }
-
-    if ($(this).attr("class") == "High Proteins"){
-        //https://stackoverflow.com/questions/19438895/add-a-new-line-in-innerhtml
-        document.getElementById("track-alert").innerHTML =  food_of_cell + " has " + "High Proteins" + " because:" + "<br />";        
-        document.getElementById("track-alert").innerHTML += "• " + food_of_cell + 
-            " proteins accounts for more than 40% of calories";
+            " los carbohidratos representan más del 40% de las calorías";
     }
     
-    if ($(this).attr("class") == "High Fats"){
+    if ($(this).attr("class") == "High Proteins") {
         //https://stackoverflow.com/questions/19438895/add-a-new-line-in-innerhtml
-        document.getElementById("track-alert").innerHTML =  food_of_cell + " has " + "High Fats" + " because:" + "<br />";   
+        document.getElementById("track-alert").innerHTML = food_of_cell + " tiene " + "Altas Proteínas" + " porque:" + "<br />";        
         document.getElementById("track-alert").innerHTML += "• " + food_of_cell + 
-            " fats accounts for more than 40% of calories";
+            " las proteínas representan más del 40% de las calorías";
     }
-
-    if ($(this).attr("class") == "Low Carbohydrates"){
+    
+    if ($(this).attr("class") == "High Fats") {
         //https://stackoverflow.com/questions/19438895/add-a-new-line-in-innerhtml
-        document.getElementById("track-alert").innerHTML =  food_of_cell + " has " + "Low Carbohydrates" + " because:" + "<br />"; 
+        document.getElementById("track-alert").innerHTML = food_of_cell + " tiene " + "Altas Grasas" + " porque:" + "<br />";   
         document.getElementById("track-alert").innerHTML += "• " + food_of_cell + 
-            " carbohydrates accounts for less than 20% of calories";
-
+            " las grasas representan más del 40% de las calorías";
     }
-
-    if ($(this).attr("class") == "Low Proteins"){
+    
+    if ($(this).attr("class") == "Low Carbohydrates") {
         //https://stackoverflow.com/questions/19438895/add-a-new-line-in-innerhtml
-        document.getElementById("track-alert").innerHTML =  food_of_cell + " has " + "Low Proteins" + " because:" + "<br />";
+        document.getElementById("track-alert").innerHTML = food_of_cell + " tiene " + "Bajos Carbohidratos" + " porque:" + "<br />"; 
         document.getElementById("track-alert").innerHTML += "• " + food_of_cell + 
-            " proteins accounts for less than 20% of calories";
+            " los carbohidratos representan menos del 20% de las calorías";
     }
-
-    if ($(this).attr("class") == "Low Fats"){
+    
+    if ($(this).attr("class") == "Low Proteins") {
         //https://stackoverflow.com/questions/19438895/add-a-new-line-in-innerhtml
-        document.getElementById("track-alert").innerHTML =  food_of_cell + " has " + "Low Fats" + " because:" + "<br />";
+        document.getElementById("track-alert").innerHTML = food_of_cell + " tiene " + "Bajas Proteínas" + " porque:" + "<br />";
         document.getElementById("track-alert").innerHTML += "• " + food_of_cell + 
-            " fats accounts for less than 20% of calories";
+            " las proteínas representan menos del 20% de las calorías";
+    }
+    
+    if ($(this).attr("class") == "Low Fats") {
+        //https://stackoverflow.com/questions/19438895/add-a-new-line-in-innerhtml
+        document.getElementById("track-alert").innerHTML = food_of_cell + " tiene " + "Bajas Grasas" + " porque:" + "<br />";
+        document.getElementById("track-alert").innerHTML += "• " + food_of_cell + 
+            " las grasas representan menos del 20% de las calorías";
     }
 
 } );
@@ -682,8 +650,10 @@ $("#table-suggest").on('click', 'label', function () {
 
 /*  --- Food Suggestion Criteria Planner ---  */
 // --- In-Use ---
+/* --- Planificador de Criterios de Sugerencias de Comida --- */
+// --- En Uso ---
 $("#food-suggest-cutoff-button").click(function() {
-    // Update user's diet profile object
+    // Actualiza el objeto de perfil de dieta del usuario
     userDietProfile["required_condition"] = $("#suggest-cutoff-conditions").val();
     userDietProfile["required_nutrient"] = $("#suggest-cutoff-nutrients").val();
 
@@ -692,8 +662,9 @@ $("#food-suggest-cutoff-button").click(function() {
 
     $.post("/food-pref", userDietProfile, null, "json");
 
-    alert("Suggestion Criteria Saved!");
+    alert("¡Criterios de Sugerencia Guardados!");
 });
+
 
 
 /* ----------------------------------------------------------------------- */
@@ -713,11 +684,10 @@ function getAdded(nutrient){
     return added;
 }
 
-function updateExtraFood(){
-
+function updateExtraFood() {
     var extraFood_string = addedFoods_names.join();
 
-    document.getElementById("extra-food").innerHTML = "Additional Foods from AI Food Suggestions:" + "<br />"; 
+    document.getElementById("extra-food").innerHTML = "Alimentos Adicionales de las Sugerencias de Comida de IA:" + "<br />"; 
     document.getElementById("extra-food").innerHTML += extraFood_string;
 }
 
