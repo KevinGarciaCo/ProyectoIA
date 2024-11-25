@@ -10,9 +10,6 @@
 
 
 ### Recursos y APIs
-1. EER Equations - https://www.nap.edu/read/11537/chapter/8
-2. EER Equations - http://www.nationalacademies.org/hmd/~/media/Files/Activity%20Files/Nutrition/DRI-Tables/8_Macronutrient%20Summary.pdf
-3. Python Flask - https://www.palletsprojects.com/p/flask/
 4. Jquery - https://jquery.com/
 5. Jquery Datatables - https://datatables.net/
 6. Nutritionix API - https://developer.nutritionix.com/docs/v2
