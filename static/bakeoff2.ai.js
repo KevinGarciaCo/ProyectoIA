@@ -1,23 +1,4 @@
-//  ................................................................................
-//  bakeoff2.ai.js
-//  javascript for AI of BakeOff2:
-//  Written by: Daniel Fong, Mark Chen, Riyya Hari Iyer
-//  Date Created: 10/15/2019
-//  Last Modified: 12/03/2019
-//  ................................................................................
 
-/*  --- ---  */
-// --- Initialization ---
-
-// --- Variables ---
-
-// --- Functions ---
-
-// --- In-Use ---
-
-
-/*  --- Load Local Food Database ---  */
-// --- Variables ---
 var foods_localData = [];
 
 // --- Functions ---
