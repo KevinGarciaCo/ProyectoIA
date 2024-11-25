@@ -1,10 +1,3 @@
-//	................................................................................
-//  bakeoff2.main.js
-//	javascript for common actions in BakeOff2:
-//  Written by: Daniel Fong, Mark Chen, Riyya Hari Iyer
-//  Date Created: 10/15/2019
-//  Last Modified: 11/26/2019
-//	................................................................................
 
 function changeTab(tabName, color) {
     if (tabName == 'Food') window.location.href = 'index.html' + window.location.search;
