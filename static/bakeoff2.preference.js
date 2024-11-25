@@ -1,23 +1,4 @@
-//	................................................................................
-//  bakeoff2.preference.js
-//	javascript for User Preference page of BakeOff2:
-//  Written by: Daniel Fong, Mark Chen, Riyya Hari Iyer
-//  Date Created: 10/15/2019
-//  Last Modified: 12/03/2019
-//	................................................................................
 
-/*  --- ---  */
-// --- Initialization ---
-
-// --- Variables ---
-
-// --- Functions ---
-
-// --- In-Use ---
-
-
-/*  --- Website Header and Tabs ---  */
-// --- Variables ---
 var tabName = 'Preference';
 var color = 'dodgerblue';
 
@@ -479,7 +460,7 @@ $("#diet-plan-save-button").click(function() {
 
     $.post("/food-pref", user_newDietProfile, null, "json");
 
-    alert("Preference Profile Saved!");
+    alert("Preferencias guardadas");
 });
 
 
