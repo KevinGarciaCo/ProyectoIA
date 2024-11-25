@@ -1,23 +1,4 @@
-//  ................................................................................
-//  bakeoff2.index.js
-//  javascript for index page of BakeOff2:
-//  Written by: Daniel Fong, Mark Chen, Riyya Hari Iyer
-//  Date Created: 10/15/2019
-//  Last Modified: 11/27/2019
-//  ................................................................................
 
-/*  --- ---  */
-// --- Initialization ---
-
-// --- Variables ---
-
-// --- Functions ---
-
-// --- In-Use ---
-
-
-/*  --- Website Header and Tabs ---  */
-// --- Variables ---
 var tabName = 'Food';
 var tabColor = 'tomato';
 
