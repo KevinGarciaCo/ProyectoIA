@@ -1,0 +1,132 @@
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="/static/style.css">     
+        
+        <!-- jQuery UI Documentation: https://api.jqueryui.com/ -->
+        <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+        <!-- Font Awesome Documentaiton: https://fontawesome.com/how-to-use/-->
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css">
+        <!-- DataTables Documentation https://datatables.net/examples/api/ -->
+        <link rel="stylesheet" href="//cdn.datatables.net/1.10.20/css/jquery.dataTables.min.css">
+           
+        <title>NutriGuide</title>
+    </head>
+
+    <body>
+        <header>
+            <div id="Track" class="tabcontent">
+                <img src="/static/assets/NutriGuide.png" style="max-width: 80px; height: auto; border-radius: 80px; float: left;">
+
+                <h1>NutriGuide - Un Asistente Inteligente de Nutricion</h1>
+            </div>
+        </header>
+        
+        <nav>
+            <button id="Food-tab" class="tablink" onclick="changeTab('Food')">Identificar Comida</button>
+            <button id="History-tab" class="tablink" onclick="changeTab('History')">Historial Alimenticio</button>
+            <button id="Track-tab" class="tablink" onclick="changeTab('Track')">Seguimiento de la nutrición</button>
+            <button id="Preference-tab" class="tablink" onclick="changeTab('Preference')">Preferencias</button>
+            <button id="Recipes-tab" class="tablink" onclick="changeTab('Recipes')">Recetas</button>
+        </nav>
+
+        <div style="margin-top: 7.5vh"></div>   
+     
+        <div id="track-alert">
+
+
+
+                Click en Etiquetas de colores: Explicaciones de IA sobre su decisión.
+
+
+        </div>
+
+        <div style="margin-top: 2.5vh"></div>
+
+        <div id="track-wrapper">
+            
+            <div class="chart-container">
+                <h3>Reporte Nutricional</h3>
+                <div class="search-container">
+                    <select id="chart-type" onChange="makeNutritionChart()">
+                        <option value="Line Plot">Gráfico de Líneas</option>
+                        <option value="Bar Graph">Gráfico de Barras</option>
+                        <option value="Pie Chart">Gráfico de Pastel</option>
+                    </select>
+<input type="text" id="datepicker" placeholder="fecha">
+<button type="submit" id="track-search-icon"><i class="fa fa-search"></i></button>
+</div>
+
+<br>
+<div id="extra-food">
+    Alimentos Adicionales de las Sugerencias de Alimentos por IA:
+</div>
+
+<br>
+<div id="nutrition-chart-container">
+    <canvas id="nutrition-chart"></canvas>
+</div>    
+</div>
+
+<div class="suggest-container">
+    <h3>Criterios para Sugerencias de Alimentos</h3>
+    <div>
+        <select id="suggest-cutoff-conditions">
+            <option value="high">Alto</option>
+            <option value="low">Bajo</option>
+        </select>
+        <select id="suggest-cutoff-nutrients">
+            <option value="carbohydrates">Carbohidratos [g]</option>
+            <option value="proteins">Proteínas [g]</option>
+            <option value="fats">Grasas [g]</option>
+        </select>
+
+        <br>
+        <br>
+        <button id="food-suggest-cutoff-button">Establecer Criterios</button>
+    </div>
+    
+    <br>
+    
+    <h3>Sugerencias de Alimentos</h3>
+    <div id="table-suggest-container">
+        <table id="table-suggest" class="display">
+            <thead>
+                <tr>
+                    <th>Nombre</th>
+                    <th>Tamaño de Porción [g]</th>
+                    <th>Calorías [kcal]</th>
+                    <th>Carbohidratos [g]</th>
+                    <th>Proteínas [g]</th>
+                    <th>Grasas [g]</th>
+                    <th>Sugerencia de IA</th>
+                    <th>Acción</th>
+                </tr>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<div style="clear: both;"></div>
+<div style="margin-top: 1vh"></div>
+  <!-- Online library -->
+  <script type="text/javascript" src="//code.jquery.com/jquery-3.4.1.min.js"></script>
+  <!-- jQuery UI Documentation: https://api.jqueryui.com/ -->     
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+  <!-- DataTables Documentation https://datatables.net/examples/api/ -->
+  <script src="//cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
+  <!-- https://www.chartjs.org/ -->
+  <script type="text/javascript" src="/static/chartjs/Chart.bundle.js"></script>
+  <script type="text/javascript" src="/static/chartjs/chartjs-plugin-annotation.js"></script>
+  
+  <!-- Project-specific Library -->
+  <script type="text/javascript" src="/static/bakeoff2.main.js"></script>
+  <script type="text/javascript" src="/static/bakeoff2.track.js"></script>
+  <script type="text/javascript" src="/static/bakeoff2.ai.js"></script>
+
+</body>
+</html>

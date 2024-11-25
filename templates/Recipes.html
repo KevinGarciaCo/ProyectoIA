@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html>
+<head>
+	 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="/static/style.css">
+        <link rel="stylesheet" type="text/css" href="/static/Recipe.css">
+
+        <!-- jQuery UI Documentation: https://api.jqueryui.com/ -->
+        <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+        <!-- Font Awesome Documentaiton: https://fontawesome.com/how-to-use/-->
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css">
+
+        <title>NutriGuide</title>
+</head>
+<body>
+	<header>
+		<div id="Recipes" class="tabcontent">
+			<img src="/static/assets/NutriGuide.png" style="max-width: 80px; height: auto; border-radius: 80px; float: left;">
+
+			<h1>NutriGuide - Un Asistente Inteligente de Nutricion</h1>
+		</div>
+	</header>
+        <nav>
+            <button id="Food-tab" class="tablink" onclick="changeTab('Food')">Identificar Comida</button>
+            <button id="History-tab" class="tablink" onclick="changeTab('History')">Historial Alimenticio</button>
+            <button id="Track-tab" class="tablink" onclick="changeTab('Track')">Seguimiento de la nutrición</button>
+            <button id="Preference-tab" class="tablink" onclick="changeTab('Preference')">Preferencias</button>
+            <button id="Recipes-tab" class="tablink" onclick="changeTab('Recipes')">Recetas</button>
+        </nav>
+     
+        <div style="margin-top: 7.5vh"></div>   
+     
+        <div style="margin-top: 2.5vh"></div>
+
+		<div class="search-container">
+			<button class="a" onclick="myFunction1()">Vegano</button>
+			<button class="b" onclick="myFunction2()">Vegetariano</button>
+			<button class="c" onclick="myFunction3()">No Vegetariano</button>
+		</div>
+		
+		<nav>
+			<div id="Vegan">
+				<h3>Recetas Veganas</h3>
+				<br><br>
+				<div class="recipe-container">
+					<h4>Ensalada de Granos con Cebollas en Escabeche y Hierbas</h4>
+					<img src="/static/assets/vegan1.jpg" id="vegan1">
+					<p>El freekeh es un trigo verde con un ligero sabor ahumado que nos encanta, pero cualquier grano entero que tengas funcionará. Esta receta de Dimes es parte de *Healthyish Superpowered*, una serie de cenas en honor a activistas y chefs femeninas de todo el país, en asociación con Caviar.</p>
+					<a target="_blank" href="https://www.bonappetit.com/recipe/grain-salad-with-pickled-onions-and-herbs">Ver receta</a>
+				</div>
+				<br><br>
+				<div class="recipe-container">
+					<h4>Fideos de Arroz al Pomodoro con Aceite de Chile</h4>
+					<img src="/static/assets/vegan2.jpg" id="vegan2">
+					<p>El aceite de chile y los fideos de arroz transforman por completo el típico perfil de sabor italiano aquí. Tenemos tomates cherry que estallan y se vuelven mermelados creando su propia salsa, fideos que se cocinan en un instante, y una cena que parece que tomó mucho más tiempo que 20 minutos.</p>
+					<a target="_blank" href="https://www.bonappetit.com/recipe/rice-noodles-al-pomodoro-with-chili-oil">Ver receta</a>
+				</div>
+				<br><br>
+				<div class="recipe-container">
+					<h4>Chili Vegano Rápido de Quinoa y Frijoles Negros</h4>
+					<img src="/static/assets/vegan3.jpg" id="vegan3">
+					<p>Prueba este chili vegano rápido y fácil. Esta receta de chili de quinoa y frijoles negros es alta en proteínas, baja en calorías y vegana, pero aún así tiene un sabor increíblemente cremoso.</p>
+					<a target="_blank" href="https://www.olivemagazine.com/recipes/vegan/quick-quinoa-and-black-bean-chilli/">Ver receta</a>
+				</div>
+				<br><br>
+				<div class="recipe-container">
+					<h4>Boloñesa Vegana</h4>
+					<img src="/static/assets/vegan4.jpg" id="vegan4">
+					<p>Haz tu boloñesa sin carne con un rico ragú de setas porcini secas y champiñones, y muchas verduras para una comida vegana baja en grasas.</p>
+					<a target="_blank" href="https://www.olivemagazine.com/recipes/vegan/mushroom-bolognese/">Ver receta</a>
+				</div>
+				<br><br>
+				<div class="recipe-container">
+					<h4>Ensaladas Mexicanas en Tazones de Tortilla</h4>
+					<img src="/static/assets/vegan5.jpg" id="vegan5">
+					<p>Mira estos vibrantes tazones de ensalada mexicana vegana. Esta receta rápida y fácil es súper fresca y tiene la cantidad justa de especias y chispa; lista en 20 minutos.</p>
+					<a target="_blank" href="https://www.olivemagazine.com/recipes/vegan/mexican-salad-tortilla-bowls/">Ver receta</a>
+				</div>
+				<br><br>
+			</div>
+			
+			<div id="Vegetarian">
+				<h3>Recetas Vegetarianas</h3>
+				<br><br>
+				<div class="recipe-container">
+					<h4>Sopa de Coliflor con Especias y Bajas Calorías</h4>
+					<img src="/static/assets/veg1.jpg" id="vegetarian1">
+					<p>Una cremosa sopa de coliflor especiada con curry en polvo, perfecta para una comida vegetariana baja en calorías que está lista en menos de una hora.</p>
+					<a target="_blank" href="https://www.olivemagazine.com/recipes/vegetarian/spiced-cauliflower-soup/">Ver receta</a>
+				</div>		
+				<br><br>
+				<div class="recipe-container">
+					<h4>Chili de Champiñones con Crema Agria de Lima</h4>
+					<img src="/static/assets/veg2.jpg" id="vegetarian2">
+					<p>Una saludable variación del clásico chili con carne. Esta versión no solo es vegetariana, también es baja en calorías y sin gluten, ideal para una comida entre semana.</p>
+					<a target="_blank" href="https://www.olivemagazine.com/recipes/vegetarian/mushroom-chilli-with-lime-soured-cream/">Ver receta</a>
+				</div>
+				<br><br>
+				<div class="recipe-container">
+					<h4>Ratatouille Turco con Salsa de Yogur</h4>
+					<img src="/static/assets/veg3.jpg" id="vegetarian3">
+					<p>Prueba esta receta rápida de ratatouille turco con salsa de yogur. Es fácil de hacer, baja en grasas y perfecta para una comida vegetariana entre semana.</p>
+					<a target="_blank" href="https://www.olivemagazine.com/recipes/vegetarian/turkish-ratatouille-with-yogurt-sauce/">Ver receta</a>
+				</div>
+				<br><br>
+				<div class="recipe-container">
+					<h4>Ensalada de Garbanzos</h4>
+					<img src="/static/assets/veg4.jpg" id="vegetarian4">
+					<p>Disfruta de esta crujiente ensalada vegetariana con garbanzos, repleta de sabores frescos y ácidos. Es baja en calorías, vegana y sin gluten. Lista en menos de 30 minutos.</p>
+					<a target="_blank" href="https://www.olivemagazine.com/recipes/vegan/black-chickpea-salad-kala-channa-masala/">Ver receta</a>
+				</div>
+				<br><br>
+				<div class="recipe-container">
+					<h4>Pastel de Espinacas y Ricotta en Hojaldre</h4>
+					<img src="/static/assets/veg5.jpg" id="vegetarian5">
+					<p>Prepara este vibrante pastel vegetariano de espinacas y ricotta. Es fácil de hacer y una opción ideal para una comida deliciosa y ligera.</p>
+					<a target="_blank" href="https://www.olivemagazine.com/recipes/healthy/spinach-and-ricotta-filo-pie/">Ver receta</a>
+				</div>
+				<br><br>
+			</div>
+		
+			<div id="Non Vegetarian">
+				<h3>Recetas No Vegetarianas</h3>
+				<br><br>
+				<div class="recipe-container">
+					<h4>Vindaloo de Pollo al Estilo Goan con Verduras</h4>
+					<img src="/static/assets/non1.jpg" id="non-vegetarian1">
+					<p>El Vindaloo de pollo es un delicioso curry de la cocina Goan con una mezcla perfecta de especias, enriquecido con verduras y avena para hacerlo más nutritivo.</p>
+					<a target="_blank" href="https://www.fitfoodie.in/recipe/goan-style-chicken-vindaloo-vegetables">Ver receta</a>
+				</div>
+				<br><br>
+				<div class="recipe-container">
+					<h4>Curry de Pollo Kerala</h4>
+					<img src="/static/assets/non2.jpg" id="non-vegetarian2">
+					<p>El Curry de Pollo Kerala tiene un delicioso sabor y aroma gracias a las especias y hojas de curry. El aceite de coco y las especias de Kerala realzan los sabores de este platillo.</p>
+					<a target="_blank" href="https://www.fitfoodie.in/recipe/kerala-chicken-curry-recipe">Ver receta</a>
+				</div>
+				<br><br>
+				<div class="recipe-container">
+					<h4>Biryani de Pollo Saludable</h4>
+					<img src="/static/assets/non3.jpg" id="non-vegetarian3">
+					<p>Bajo en grasa y alto en fibra, este biryani de pollo es una experiencia para el paladar mientras mantiene tu salud en mente. ¡Prepáralo y disfrútalo!</p>
+					<a target="_blank" href="https://www.fitfoodie.in/recipe/healthy-chicken-biryani">Ver receta</a>
+				</div>
+				<br><br>
+				<div class="recipe-container">
+					<h4>Res y Brócoli Saludables</h4>
+					<img src="/static/assets/non4.jpg" id="non-vegetarian4">
+					<p>Prueba esta receta saludable de res y brócoli. También puedes acompañarla con arroz al vapor para una comida completa.</p>
+					<a target="_blank" href="https://www.asweetpeachef.com/healthy-beef-and-broccoli-recipe/">Ver receta</a>
+				</div>
+				<br><br>
+				<div class="recipe-container">
+					<h4>Pavo Asado con Hierbas</h4>
+					<img src="/static/assets/non5.jpg" id="non-vegetarian5">
+					<p>Este método sencillo produce un pavo asado con todo el sabor jugoso que sueñas. Decora tu plato con ramitas de hierbas frescas y gajos de cítricos antes de servir.</p>
+					<a target="_blank" href="http://www.eatingwell.com/recipe/249300/herb-roasted-turkey/">Ver receta</a>
+				</div>
+				<br><br>
+			</div>
+		</nav>
+		
+     <div style="clear: both;"></div>
+        <div style="margin-top: 5vh"></div>
+
+        <!-- Online library -->
+        <script type="text/javascript" src="//code.jquery.com/jquery-3.4.1.min.js"></script>
+        <!-- jQuery UI Documentation: https://api.jqueryui.com/ -->
+        <script type="text/javascript" src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+        <!-- DataTables Documentation https://datatables.net/examples/api/ -->
+        <script src="//cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
+
+        <!-- Project-specific Library -->
+        <script type="text/javascript" src="/static/bakeoff2.main.js"></script>
+        <script type="text/javascript" src="/static/Recipe.js"></script>
+
+</body>
+</html>
