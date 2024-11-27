@@ -1,27 +1,27 @@
 #  NutriGuide
 
-## TECNOLÓGICO​ ​NACIONAL​ ​DE​ ​MÉXICO
-## INSTITUTO TECNOLÓGICO DE TIJUANA
+## TECNOLÓGICO​ ​NACIONAL​ ​DE​ ​MÉXICO INSTITUTO TECNOLÓGICO DE TIJUANA
 
-## SUBDIRECCIÓN ACADÉMICA
-## DEPARTAMENTO DE SISTEMAS Y COMPUTACIÓN
+## SUBDIRECCIÓN ACADÉMICA DEPARTAMENTO DE SISTEMAS Y COMPUTACIÓN
+
+
 ### SEMESTRE: 
-#### Agosto - Diciembre 2024
+Agosto - Diciembre 2024
 ### CARRERA: 
-#### Ingeniería en Sistemas Computacionales
+Ingeniería en Sistemas Computacionales
 ### MATERIA:
-#### Inteligencia Artificial
+Inteligencia Artificial
 ### Nombre del proyecto:​ ​
-#### NutriGuide
+NutriGuide
 
 ### Equipo:​ ​
-#### Equipo 2
+Equipo 2
 
 ### Serie:​ 
-#### ISC- AD24 -SB
+ISC- AD24 -SB
 
 ### Líder:​ 
-#### Garcia Cortez Kevin Eduardo 21211950		L21211950@tectijuana.edu.mx
+Garcia Cortez Kevin Eduardo 21211950		L21211950@tectijuana.edu.mx
 
 ### NOMBRE Y NÚMERO :
 Espinosa Inzunza Fernando Manuel 21210371		L21210371@tectijuana.edu.mx
